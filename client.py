@@ -7,7 +7,7 @@ options.add_argument("--no-sandbox")
 options.add_argument("--start-maximized")
 
 browser = webdriver.Chrome()
-browser.get('http://127.0.0.1:5000/')
+browser.get('https://nielsgercama.github.io/pano/')
 
 xinput = browser.find_element(By.ID, "x")
 yinput = browser.find_element(By.ID, "y")
