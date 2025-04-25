@@ -4,7 +4,7 @@
 		<title>three.js webgl - equirectangular video panorama</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="main.css">
+		<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 		<style>
 			body {
 				touch-action: none;
@@ -15,8 +15,8 @@
 		<div id="container"></div>
 
 		<video id="video" loop muted crossOrigin="anonymous" playsinline style="display:none">
-			<source src="https://nielsgercama.github.io/pano/examples/textures/pano.webm">
-			<source src="https://nielsgercama.github.io/pano/examples/textures/pano.mp4">
+			<source src="{{url_for('static', filename='pano.webm')}}" type="video/webm">
+			<source src="{{url_for('static', filename='pano.mp4')}}" type="video/mp4">
 		</video>
 
 		<script type="importmap">
@@ -31,20 +31,6 @@
 		<script type="module">
 
 			import * as THREE from 'three';
-
-			const obj = { hello: "world" };
-
-			const request = new Request("/myEndpoint", {
-			method: "POST",
-			body: JSON.stringify(obj),
-			});
-
-			request.json().then((data) => {
-				console.log(data); // { hello: "world" }
-			}).catch((error) => {
-				console.error("Error:", error);
-			});
-
 
 			let camera, scene, renderer;
 
