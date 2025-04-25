@@ -1,6 +1,7 @@
 import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import random,  time
 
 options = webdriver.ChromeOptions()
 options.add_argument("--no-sandbox")
@@ -14,8 +15,8 @@ yinput = browser.find_element(By.ID, "y")
 button = browser.find_element(By.ID, "submitbutton")
 
 while True:
-    x = input("x: ")
-    y = input("y: ")
+    x = random.randint(-180, 180)
+    y = random.randint(-90, 90)
 
     if x == "exit" or y == "exit":
         break
@@ -25,3 +26,4 @@ while True:
     yinput.clear()
     yinput.send_keys(y)
     button.click()
+
