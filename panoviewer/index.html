@@ -4,7 +4,7 @@
 		<title>Orb Panovideo</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="static/css/main.css">
+		<link type="text/css" rel="stylesheet" href="../static/css/main.css">
 		<style>
 			body {
 				touch-action: none;
@@ -15,8 +15,8 @@
 		<div id="container"></div>
 
 		<video id="video" loop muted crossOrigin="anonymous" playsinline style="display:none">
-			<source src="static/pano.webm" type="video/webm">
-			<source src="static/pano.mp4" type="video/mp4">
+			<source src="../static/pano.webm" type="video/webm">
+			<source src="../static/pano.mp4" type="video/mp4">
 		</video>
 
 		<input id="x">
@@ -29,7 +29,7 @@
 		<script type="importmap">
 			{
 				"imports": {
-					"three": "/static/js/build/three.module.js",
+					"three": "../static/js/build/three.module.js",
 					"three/addons/": "./jsm/"
 				}
 			}
