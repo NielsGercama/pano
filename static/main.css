@@ -8,6 +8,14 @@ body {
 	overscroll-behavior: none;
 }
 
+#submitbutton {
+	opacity: 0;
+}
+
+input {
+	opacity:0;
+}
+
 a {
 	color: #ff0;
 	text-decoration: none;

@@ -18,6 +18,13 @@
 			<source src="{{url_for('static', filename='pano.webm')}}" type="video/webm">
 			<source src="{{url_for('static', filename='pano.mp4')}}" type="video/mp4">
 		</video>
+
+		<input id="x">
+		<input id="y">
+		<input id="z">
+		<button type="button" id='submitbutton'>Submit</button>
+		
+
 		
 		<script type="importmap">
 			{
@@ -27,11 +34,19 @@
 				}
 			}
 		</script>
+		<script>
+			xinput = document.getElementById('x');
+			yinput = document.getElementById('y');
+			zinput = document.getElementById('z');
 
+			document.getElementById('submitbutton').onclick = function() {
+			lon = parseFloat(xinput.value);
+			lat = parseFloat(yinput.value);
+			console.log(lon);
+			console.log(lat);
+		};
+		</script>
 		<script type="module">
-
-			import * as THREE from 'three';
-
 			let camera, scene, renderer;
 
 			let isUserInteracting = false,
@@ -43,6 +58,19 @@
 				onPointerDownLat = 0;
 
 			const distance = .5;
+
+			xinput = document.getElementById('x');
+			yinput = document.getElementById('y');
+			zinput = document.getElementById('z');
+
+			document.getElementById('submitbutton').onclick = function() {
+				lon = parseFloat(xinput.value);
+				lat = parseFloat(yinput.value);
+				console.log(lon);
+				console.log(lat);
+			};
+
+			import * as THREE from 'three';			
 
 			init();
 
@@ -74,9 +102,7 @@
 				renderer.setAnimationLoop( animate );
 				container.appendChild( renderer.domElement );
 
-				document.addEventListener( 'pointerdown', onPointerDown );
 				document.addEventListener( 'pointermove', onPointerMove );
-				document.addEventListener( 'pointerup', onPointerUp );
 
 				//
 
@@ -93,34 +119,6 @@
 
 			}
 
-			function onPointerDown( event ) {
-
-				isUserInteracting = true;
-
-				onPointerDownPointerX = event.clientX;
-				onPointerDownPointerY = event.clientY;
-
-				onPointerDownLon = lon;
-				onPointerDownLat = lat;
-
-			}
-
-			function onPointerMove( event ) {
-
-				if ( isUserInteracting === true ) {
-
-					lon = ( onPointerDownPointerX - event.clientX ) * 0.1 + onPointerDownLon;
-					lat = ( onPointerDownPointerY - event.clientY ) * 0.1 + onPointerDownLat;
-
-				}
-
-			}
-
-			function onPointerUp() {
-
-				isUserInteracting = false;
-
-			}
 
 			function animate() {
 
@@ -137,7 +135,7 @@
 				renderer.render( scene, camera );
 
 			}
-
 		</script>
+
 	</body>
 </html>
